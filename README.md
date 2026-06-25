@@ -14,9 +14,8 @@
   <img src="https://img.shields.io/badge/License-MIT-green">
 </p>
 
-<!-- After deploying on Streamlit, replace the href below with your live URL. -->
 <p align="center">
-  <a href="https://share.streamlit.io/"><img src="https://img.shields.io/badge/%E2%96%B6_Live_Demo-Open_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live demo"></a>
+  <a href="https://insight-agent-gg7xztjsawotlkcrselyqs.streamlit.app/"><img src="https://img.shields.io/badge/%E2%96%B6_Live_Demo-Open_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live demo"></a>
 </p>
 
 <p align="center">
