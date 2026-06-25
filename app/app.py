@@ -115,8 +115,25 @@ with st.sidebar:
     key_label = "Groq API key" if provider == "groq" else "Google API key"
     key_help = ("Free key: https://console.groq.com/keys" if provider == "groq"
                 else "Free key: https://aistudio.google.com/app/apikey")
-    env_key = os.getenv("GROQ_API_KEY") if provider == "groq" else os.getenv("GOOGLE_API_KEY")
-    api_key = st.text_input(key_label, value=env_key or "", type="password", help=key_help)
+    secret_name = "GROQ_API_KEY" if provider == "groq" else "GOOGLE_API_KEY"
+
+    # Server-side key (Streamlit secrets / env). NEVER rendered into a widget,
+    # so the key is never sent to a visitor's browser.
+    server_key = ""
+    try:
+        server_key = st.secrets.get(secret_name, "")
+    except Exception:
+        server_key = ""
+    server_key = server_key or os.getenv(secret_name, "")
+
+    if server_key:
+        api_key = server_key
+        st.caption("\U0001F511 Using the app's configured key \u2014 just pick data and ask a question.")
+    else:
+        api_key = st.text_input(
+            key_label, value="", type="password", help=key_help,
+            placeholder="Paste your free key to run the app",
+        ).strip()
 
     with st.expander("Advanced"):
         max_tries = st.slider("Max self-correction attempts", 1, 8, 5)
