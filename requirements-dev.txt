@@ -1,0 +1,2 @@
+# Dev/test deps. pip install -r requirements-dev.txt
+pytest>=7.0

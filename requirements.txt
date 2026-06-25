@@ -1,0 +1,9 @@
+# --- Insight Agent: lean runtime deps (Groq default) ---
+streamlit>=1.30
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+langgraph>=0.2
+langchain-core>=0.2
+langchain-groq>=0.1
+python-dotenv>=1.0
